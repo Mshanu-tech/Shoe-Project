@@ -2,8 +2,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import './pagecss/index.css'
-// import { useRef } from 'react';
-// import Nav from './customnavber'
 import { login } from '../api/user';
 import { useState } from 'react';
 

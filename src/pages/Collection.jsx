@@ -12,13 +12,6 @@ function Addproduct() {
       setshoe(updatedShoe);
     };
 
-    // const handleproduct = (e) =>{
-    //   e.preventDefault()
-    //   const q=e.qu
-    //   const qu = q-1
-    //   console.log(q);
-    //   console.log(qu)
-    // }
   return (
     <>
     <h1>Cart</h1>

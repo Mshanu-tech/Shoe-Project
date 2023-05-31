@@ -46,8 +46,8 @@ const isLoggedin = () => {
   }
 };
 
-const clearuserinfo = () => {
+const Logout = () => {
   localStorage.removeItem("cred");
 };
 
-export { login, saveuser, clearuserinfo, isLoggedin };
+export { login, saveuser, Logout, isLoggedin };

@@ -22,8 +22,9 @@ function BasicExample() {
     <div className='backgroudimage'>
       <h1 className='h2'>Love the Planet <br /> we walk on</h1>
     </div>
+    <h1 className='h1'>SHOE</h1> 
+      <div style={{ display: "flex", justifyContent: "center" , flexWrap:"wrap"}}>
 
-      {/* <div style={{ display: "flex", justifyContent: "center" , flexWrap:"wrap"}}>
     {
       product.map((e)=>(
         <div style={{ margin: "1rem" }} key={e.id}>
@@ -41,7 +42,7 @@ function BasicExample() {
         </div>
       ))
     }
-      </div> */}
+      </div>
     </div>
   );
 }
