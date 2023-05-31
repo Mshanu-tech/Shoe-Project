@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import Profile from './pages/Profile'
 import './App.css'
 import MEN from './pages/MEN';
 import WOMEN from './pages/WOMEN';
@@ -28,7 +27,6 @@ function App() {
       <Route path='WOMEN' element={<WOMEN/>}/>
       <Route path='ADD' element={<Header/>}>
       <Route index element={<Addproduct/>}/>
-      <Route path='Profile' element={<Profile/>}/>
       </Route>
     </Routes>
     </Shoecontext.Provider>

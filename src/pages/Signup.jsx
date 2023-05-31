@@ -9,13 +9,13 @@ const Register = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    let user = { name, password };
+    let regobj = { name, password };
 
-    console.log("sdwer", user);
+    console.log("sdwer", regobj);
     fetch("http://localhost:8000/user", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(user)
+      body: JSON.stringify(regobj)
     }).then((res) => {
       console.log("suss");
       navigate('/login');
@@ -26,7 +26,7 @@ const Register = () => {
 
   return (
     <div className="offset-lg-3 col-lg-6">
-      <form className="container" onSubmit={handlesubmit}>
+      <form className="container">
         <div className="card">
 
           <div className="card-body">

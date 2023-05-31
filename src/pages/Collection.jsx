@@ -2,7 +2,9 @@ import React, { useContext } from 'react'
 import { Shoecontext } from '../App'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import './pagecss/index.css';
+import './pagecss/index.css'
+import { ToastContainer , toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Addproduct() { 
     const {shoe , setshoe} = useContext(Shoecontext)
@@ -10,6 +12,7 @@ function Addproduct() {
     const removeproduct = (id) => {
       const updatedShoe = shoe.filter((item) => item.id !== id);
       setshoe(updatedShoe);
+      toast("Product removed successfully")
     };
 
   return (
@@ -20,7 +23,7 @@ function Addproduct() {
           <div style={{ margin: "1rem" }} key={e.id}>
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={e.image} />
-              <Card.Body>
+              <Card.Body> 
                 <Card.Title>{e.name}</Card.Title>
                 <Card.Text>
                   Some quick example text to build on the card title and make up the
@@ -33,6 +36,7 @@ function Addproduct() {
           </div>
         ))}
       </div>
+      <ToastContainer/>
     </>
   )
   }
