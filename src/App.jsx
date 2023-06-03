@@ -8,6 +8,7 @@ import MEN from './pages/MEN';
 import WOMEN from './pages/WOMEN';
 import Header from './Header';
 import Addproduct from './pages/Collection';
+import Viewproduct from './pages/Viewproduct';
 
 const Shoecontext = createContext()
 
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <>
-    
+  
     <BrowserRouter>
     <Shoecontext.Provider value={{shoe,setshoe}}>
     <Routes>
@@ -25,6 +26,7 @@ function App() {
       <Route path='Login' element={<Login/>}/>
       <Route path='MEN' element={<MEN/>}/>
       <Route path='WOMEN' element={<WOMEN/>}/>
+      <Route path='View' element={<Viewproduct/>}/>
       <Route path='ADD' element={<Header/>}>
       <Route index element={<Addproduct/>}/>
       </Route>
