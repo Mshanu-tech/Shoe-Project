@@ -2,8 +2,8 @@ import Button from 'react-bootstrap/Button';
 import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { product } from './product';
-import Customnav from './customnavber'
-import './pagecss/home.css'
+import Customnav from './customnavber';
+import style from './style/home.module.css'
 import { Shoecontext } from '../App'
 import { useNavigate } from 'react-router-dom';
 
@@ -15,14 +15,13 @@ function BasicExample() {
     navigate('/ADD')
   }
   return (
-
-    <div className='body'>
+    <div className={style.body}>
     <Customnav/>
 
-    <div className='backgroudimage'>
-      <h1 className='h2'>Love the Planet <br /> we walk on</h1>
+    <div className={style.backgroudimage}>
+      <h1 className={style.h2}>Love the Planet <br /> we walk on</h1>
     </div>
-    <h1 className='h1'>SHOE</h1> 
+    <h1 className={style.h1}>SHOE</h1> 
       <div style={{ display: "flex", justifyContent: "center" , flexWrap:"wrap"}}>
 
     {
@@ -46,5 +45,4 @@ function BasicExample() {
     </div>
   );
 }
-
 export default BasicExample;

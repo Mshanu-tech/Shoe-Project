@@ -1,44 +1,5 @@
 {
   "user": [
-    {
-      "name": "shanu",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "name": "rohan",
-      "password": "rohan",
-      "id": 4
-    },
-    {
-      "name": "ads",
-      "password": "ads",
-      "id": 5
-    },
-    {
-      "name": "wqqwe",
-      "password": "wqeqwe",
-      "id": 6
-    },
-    {
-      "name": "wqqwe",
-      "password": "wqeqwe",
-      "id": 7
-    },
-    {
-      "name": "ajith",
-      "password": "ewerwer",
-      "id": 8
-    },
-    {
-      "name": "sad",
-      "password": "sda",
-      "id": 9
-    },
-    {
-      "name": "dqwdwq",
-      "password": "qwdqwdqwdwd",
-      "id": 10
-    }
+ 
   ]
 }

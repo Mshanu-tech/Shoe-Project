@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Shoecontext } from '../App'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import './pagecss/index.css'
+// import './pagecss/index.css'
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

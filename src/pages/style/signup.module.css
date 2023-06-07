@@ -1,0 +1,29 @@
+.center{
+    background-size:contain; 
+    background-repeat: no-repeat; 
+     background-image: url('https://image-cdn.hypb.st/https://hypebeast.com/image/2018/02/nike-air-force-1-low-suede-pack-spring-tw.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .form {
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Adjust the opacity (last value) as needed */
+    backdrop-filter: blur(5px); /* Apply a blur effect to the background */
+  }
+.transparentGlass {
+    background: rgb(2 2 2 / 40%);
+    backdrop-filter: blur(5px);
+}
+.loginhere{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.loginhere:hover{
+    cursor: pointer;
+}
+  

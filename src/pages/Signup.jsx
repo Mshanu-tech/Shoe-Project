@@ -1,76 +1,84 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
+import styles from './style/signup.module.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import axios from 'axios'
+import Button from "../Components/Button";
+import Input from "../Components/input";
+
 
 const Register = () => {
-  const [name, namechange] = useState("");
-  const [password, passwordchange] = useState("");
 
-  const navigate = useNavigate();
+  const [Name, setname]=useState('')
+  const [Email, setemail]=useState('')
+  const [Password, setpassword]=useState('')
+  const [Phone, setphone]=useState('')
+  const [Confrimpassword, setconfrimpassword]=useState('')
+  const [validated, setValidated] = useState(false);
 
-  const handlesubmit = (e) => {
-    e.preventDefault();
-    let regobj = { name, password };
+  const navigate = useNavigate()
 
-    console.log("sdwer", regobj);
-    fetch("http://localhost:8000/user", {
-      method: "POST",
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(regobj)
-    }).then((res) => {
-      console.log("suss");
-      navigate('/login');
-    }).catch((err) => {
-      console.log(err);
+const handleform = async(event) =>{
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  setValidated(true)
+
+  try {
+    const response = await axios.post("http://localhost:4000/users/signup",{
+      Email,Name,Phone,Password
     })
-  };
+    navigate('/')
+    console.log(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
   return (
-    <div className="offset-lg-3 col-lg-6">
-      <form className="container">
-        <div className="card">
+    <>
+      <div className={styles.center}>
+      <Form noValidate validated={validated}  onSubmit={handleform} className={`${styles.form} ${styles.transparentGlass}`}>
+        <Container>
+      <Row>
+        <Col xs={6} md={4}>
+          <Image src="https://nouthemes.net/html/trueshoes/images/logo.png" style={{width:"140px",margin:"30px"}} rounded />
+        </Col>
+      </Row>
+    </Container>
+          <Row>
+          <Input label="Name" placeholder="Enter Name" type="text" onChange={(e)=>setname(e.target.value)} required/>
 
-          <div className="card-body">
-            <div className="row">
-              <div className="col-lg-6">
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    id="name"
-                    value={name}
-                    onChange={e => namechange(e.target.value)}
-                    className="form-control"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="form-group">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    id="password"
-                    value={password}
-                    onChange={e => passwordchange(e.target.value)}
-                    type="password"
-                    className="form-control"
-                    placeholder="Enter your password"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer">
-            <button type="submit" className="btn btn-primary">
-              Register
-            </button>
-            <Link to={'/login'} className="btn btn-danger ml-2">
-              Close
-            </Link>
-          </div>
-        </div>
-      </form>
-    </div>
+            <Input label="Phone" placeholder="Enter Phone" type="text"  onChange={(e)=>setphone(e.target.value)} required/>
+
+          </Row>
+          <Input label="Email address" placeholder="Enter email" type="email"  onChange={(e)=>setemail(e.target.value)} required/>
+          <Row>
+          <Input label="Password" placeholder="Enter Password" type="password" onChange={(e)=>setpassword(e.target.value)} required/>
+
+          <Input label="Confrim Password" placeholder="Confrim Password" type="password" onChange={(e)=>setconfrimpassword(e.target.value)} required/>
+          </Row>
+          <Form.Group as={Col} className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check className={styles.label} type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Row>
+            
+          <Button variant="primary" type="submit" value=' Create Account' className="custom-button"/>
+
+          <Form.Group as={Col} className="mb-3" controlId="formBasicCheckbox">
+          <Form.Label className={`${styles.loginhere} ${styles.label}`}>Already have an account ? <a onClick={()=>navigate('/login')}>  Login here</a></Form.Label>
+          </Form.Group>
+          </Row>
+        </Form>
+      </div>
+    </>
   );
 };
 

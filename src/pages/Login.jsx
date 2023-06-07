@@ -1,62 +1,66 @@
-import Button from 'react-bootstrap/Button';
+import { useState } from "react";
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
-import './pagecss/index.css'
-import { login } from '../api/user';
-import { useState } from 'react';
+import styles from './style/signup.module.css';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Button from "../Components/Button";
+import axios from 'axios';
+import Input from "../Components/input";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [password, setpassword] = useState('')
-  const [email, setemail] = useState('')
-  const [error, seterror] = useState('')
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
 
+  const navigate = useNavigate();
 
-  const navigate= useNavigate()
+  const handleForm = async (e) => {
+    e.preventDefault();
+    console.log(email,password);
+    try {
+      const response = await axios.post('http://localhost:4000/users/login', {
+        Email: email,
+        Password: password,
+      });
+      console.log("user data", response.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setEmail('');
+    setPassword('');
+  };
 
-  const handleform = ()=>{
-    seterror('');
-    login(email,password)
-      .then(()=>{
-        navigate('/') 
-      })
-      .catch(()=>{
-        seterror('Login Failed')
-      })
-  }
-  // console.log(email);
-  // console.log(password);
+  const handleFormSubmit = () => {
+    navigate("/Signup");
+  };
 
   return (
     <>
-     
-      <div className='center'>
-        <Form  className='form' onSubmit={handleform}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <label>{error}</label>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control onChange={(e)=>{setemail(e.target.value)}} type="text" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control onChange={(e)=>{setpassword(e.target.value)}} type="password" placeholder="Password" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Form.Group style={{    display: "flex" ,justifyContent: "space-evenly"}} className="mb-3" controlId="formBasicCheckbox">
-          <Button variant="primary" onClick={handleform}>
-            Submit
-          </Button>
-          <Button variant="primary" onClick={()=>{navigate('/Signup')}} >
-            Signup
-          </Button>
+      <div className={styles.center}>
+        <Form onSubmit={handleForm} className={`${styles.form} ${styles.transparentGlass}`}>
+          <Container>
+            <Row>
+              <Col xs={6} md={4}>
+                <Image src="https://nouthemes.net/html/trueshoes/images/logo.png" style={{ width: "140px", margin: "30px" }} rounded />
+              </Col>
+            </Row>
+          </Container>
+          <Row>
+            <Input label="Email address" placeholder="Enter email" type="email" name="useremail" value={email} onChange={(e)=>setEmail(e.target.value)} />
+          </Row>
+          <Row>
+            <Input label="Password" placeholder="Enter Password" type="password" name="userpassword" value={password} onChange={(e)=>setPassword(e.target.value)} />
+          </Row>
+          <Form.Group style={{ display: "flex", justifyContent: "space-evenly" }} className="mb-3" controlId="formBasicCheckbox">
+            <Button variant="primary" type='submit' value='login' />
+            <Button variant="primary" value="Signup" buttonhandler={handleFormSubmit} />
           </Form.Group>
         </Form>
       </div>
-      </>
+    </>
   )
 }
 

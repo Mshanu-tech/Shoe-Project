@@ -5,22 +5,23 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Logout } from '../api/user';
 import { Link } from 'react-router-dom';
 import { isLoggedin } from '../api/user';
-import './pagecss/home.css'
-
+import style from './style/nav.module.css'
 
 function CollapsibleExample() {
+
   return (
-    <div style={{position:"sticky"}}>
-<Navbar collapseOnSelect expand="lg" bg="light" variant="dark">
+    <div>
+<Navbar collapseOnSelect expand="lg" bg="light" variant="white" style={{margin:"14px"}}>
       <Container>
-        <Navbar.Brand className='head' as={Link} to="/">PLASHOE</Navbar.Brand>
+        <Navbar.Brand  as={Link} to="/"><img style={{width:"140px"}} src="https://nouthemes.net/html/trueshoes/images/logo.png" alt="" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto custom-nav">
-            <Nav.Link as={Link} to="/MEN">MEN</Nav.Link>
-            <Nav.Link as={Link} to="/WOMEN">WOMEN</Nav.Link>
+        <Navbar.Collapse id="responsive-navbar-nav" style={{    justifyContent: "space-evenly"}}>
+        <Nav className={style.meauto}>
+            <Nav.Link as={Link} to="/men">MEN</Nav.Link>
+            <Nav.Link as={Link} to="/women">WOMEN</Nav.Link>
+            <Nav.Link as={Link} to="/kid">KIDS</Nav.Link>
           </Nav>
-          <Nav className="me-auto custom-nav">
+          <Nav className={style.meauto}>
           <Nav.Link as={Link} to="/ADD">Cart<Badge bg="primary">9</Badge></Nav.Link>
         {
           isLoggedin()?(

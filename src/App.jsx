@@ -36,8 +36,6 @@ function App() {
     </>
   )
 }
-
-
 export{
   App
 ,
