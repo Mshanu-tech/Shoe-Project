@@ -1,18 +1,18 @@
-import Button from 'react-bootstrap/Button';
 import React, { useContext } from 'react';
-import Card from 'react-bootstrap/Card';
 import { product } from './product';
 import Customnav from './customnavber';
 import style from './style/home.module.css'
 import { Shoecontext } from '../App'
 import { useNavigate } from 'react-router-dom';
+import Cards from '../Components/Cards';
 
-function BasicExample() {
+function Home() {
+
   const navigate = useNavigate()
   const {shoe , setshoe} = useContext(Shoecontext)
-  const handleproduct = (event) => {
-    setshoe([...shoe, event]);
-    navigate('/ADD')
+
+  const handlecard = (e) => {
+    navigate('/View',{state:{id:e.id , name:e.name, price:e.price, image:e.image, genter:e.genter}})
   }
   return (
     <div className={style.body}>
@@ -27,17 +27,7 @@ function BasicExample() {
     {
       product.map((e)=>(
         <div style={{ margin: "1rem" }} key={e.id}>
-          <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={e.image} />
-            <Card.Body>
-              <Card.Title>{e.name}</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </Card.Text>
-              <Button onClick={()=>handleproduct(e)} variant="primary">ADD Cart</Button>
-            </Card.Body>
-          </Card>
+            <Cards image={e.image} name={e.name} price={e.price} handlecards={()=>handlecard(e)}/>
         </div>
       ))
     }
@@ -45,4 +35,4 @@ function BasicExample() {
     </div>
   );
 }
-export default BasicExample;
+export default Home;

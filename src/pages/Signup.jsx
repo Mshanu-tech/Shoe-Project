@@ -25,6 +25,7 @@ const Register = () => {
 const handleform = async(event) =>{
   event.preventDefault();
   const form = event.currentTarget;
+  console.log(form);
   if (form.checkValidity() === false) {
     event.preventDefault();
     event.stopPropagation();
