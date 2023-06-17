@@ -1,0 +1,15 @@
+.Favoriteicon{
+font-size: 30px;
+cursor: pointer;
+position: absolute;
+right: 68px;
+bottom: 160px;
+}
+
+.Carticon{
+    font-size:30px ;
+    cursor:pointer;
+    position:absolute;
+    bottom: 160px;
+    left: 68px;
+}

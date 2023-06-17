@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Customnavbar from './customnavber'
+import Filter from '../Components/Filter';
 import { product } from './product';
 import Cards from '../Components/Cards';
 import { Shoecontext } from '../App'
@@ -21,14 +21,21 @@ function WOMEN() {
   }
   return (
     <>
-      <h1 style={H1}>WOMEN</h1>
-      <div style={{ display: "flex", justifyContent: "center" , flexWrap:"wrap"}}>
-        {filteredProducts.map((e) => (
-          <div style={{ margin: "1rem" }} key={e.id}>
-            <Cards image={e.image} name={e.name} price={e.price} handlecards={()=>handlecard(e)}/>
+    <Customnavbar/>
+      <div style={{ width: "100%" }}>
+        <div style={{ display: "flex", background: "aquamarine" }}>
+          <Filter/>
+        <div className='container'>
+          <div className='row' style={{ display: "flex", justifyContent: "space-between" }}>
+            {filteredProducts.map((e) => (
+              <div className="col-sm-12 col-md-4 col-lg-3 g-4" style={{ margin: "1rem" }} key={e.id}>
+                <Cards image={e.image} name={e.name} price={e.price} handlecards={() => handlecard(e)} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
+    </div >
     </>
   );
 }
