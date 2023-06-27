@@ -10,7 +10,7 @@ import style from './style/nav.module.css';
 function CollapsibleExample() {
   return (
     <div style={{position: "sticky", top: 0, zIndex: 100}}>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="white" style={{height:"80px"}}>
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="white" >
         <Container>
           <Navbar.Brand as={Link} to="/"><img style={{ width: "140px" }} src="https://nouthemes.net/html/trueshoes/images/logo.png" alt="" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

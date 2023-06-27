@@ -4,6 +4,8 @@ import Cards from '../Components/Cards';
 import { useNavigate } from 'react-router-dom';
 import Customnavbar from './customnavber';
 import Filter from '../Components/Filter'
+import style from './men.module.css'
+
 
 function MEN() {
   const filteredProducts = product.filter((e) => e.id <= 7);
@@ -24,13 +26,13 @@ function MEN() {
   return (
     <>
     <Customnavbar/>
+<Filter/>
       <div style={{ width: "100%" }}>
-        <div style={{ display: "flex", background: "aquamarine" }}>
-          <Filter/>
-        <div className='container'>
-          <div className='row' style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className={style.main}>
+      <div className='container'>
+          <div className={`row ${style.row}`}>
             {filteredProducts.map((e) => (
-              <div className="col-sm-12 col-md-4 col-lg-3 g-4" style={{ margin: "1rem" ,display:"flex" , justifyContent:"center" }} key={e.id}>
+              <div className={`col-sm-12 col-md-4 col-lg-3 g-4 ${style.card}`}  key={e.id}>
                 <Cards image={e.image} name={e.name} price={e.price} handlecards={() => handlecard(e)} />
               </div>
             ))}

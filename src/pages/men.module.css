@@ -1,39 +1,19 @@
-.main-container {
-    display: flex;
-    flex-wrap: wrap;
-    transition: margin-bottom 0.3s ease;
+.row{
+  display: flex; 
+  justify-content:center;
+}
+.main{
+  display: flex; 
+  background-color: aquamarineaqua;
+}
+.card{
+  margin: 1rem; 
+  display:flex; 
+  justify-content:center;
+}
+
+@media screen and (max-width:500px) {
+  .main{
+    display: block;
   }
-  
-  .show-filter {
-    margin-bottom: 100px;
   }
-  
-  .filter-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: aquamarine;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 9999;
-  }
-  
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #fff;
-    margin: 2px;
-  }
-  
-  @media (min-width: 768px) {
-    .filter-toggle {
-      display: none;
-    }
-  }
-  

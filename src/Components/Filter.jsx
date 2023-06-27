@@ -1,11 +1,37 @@
 import React from 'react'
 import Dropdown from './Dropdown';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 function Filter() {
   return (
     <>
-    <div className='leftside'>
-            <div style={{position: "sticky",top:"0px"}}>
+      <Navbar expand="lg" variant="pills" defaultActiveKey="/home">
+      <Container>
+      <Nav.Item>
+            <Dropdown title="Occasion" options={['Casual', 'Party', 'Wedding']} />
+          </Nav.Item>
+          <Nav.Item>
+            <Dropdown title="Occasion" options={['Casual', 'Party', 'Wedding']} />
+          </Nav.Item>
+          <Nav.Item>
+            <Dropdown title="Occasion" options={['Casual', 'Party', 'Wedding']} />
+          </Nav.Item>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" >
+
+          <Nav.Item>
+            <Dropdown title="Brand" options={['NIKE', 'Bata', 'Woodland', 'Puma']} />
+          </Nav.Item>
+          <Nav.Item>
+            <Dropdown title="Discount" options={['50%', '25%', '10%']} />
+          </Nav.Item>
+        </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      {/* <div className='leftside' style={{position: "sticky",top:"0px"}}>
+            <div >
               <h1>Filters</h1>
               <hr />    
               <p style={{ paddingLeft: "10px", fontWeight: "bold" }}>Price</p>
@@ -32,17 +58,17 @@ function Filter() {
                 <input style={{ margin: "3px" }} type="radio" value="White" name="gender" /> White
                 <input style={{ margin: "3px" }} type="radio" value="Blue" name="gender" /> Blue
               </section>
-
+              
+              <section >
               <Dropdown title="Size" options={[2,4,5,6,7,3]}/>
 
-              <Dropdown title="Brand" options={['NIKE', 'Bata', 'Woodland', 'Puma']}/>
-
+             
               <Dropdown title="Occasion" options={['Casual', 'Party', 'Wedding']}/>
 
-              <Dropdown title="Discount" options={['50%', '25%', '10%']}/>
-              
+             
+              </section>              
           </div>
-        </div>
+        </div> */}
     </>
   )
 }
